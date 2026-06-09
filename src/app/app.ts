@@ -1,9 +1,9 @@
 import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { HeroBanner } from './components/01-hero-banner/hero-banner';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [HeroBanner],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
