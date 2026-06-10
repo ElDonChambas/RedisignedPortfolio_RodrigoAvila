@@ -1,11 +1,16 @@
 import { Component } from '@angular/core';
-
+import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-hero-banner',
-  imports: [],
+  standalone: true, 
+  imports: [CommonModule],
   templateUrl: './hero-banner.html',
   styleUrl: './hero-banner.css',
 })
 export class HeroBanner {
+  activeLanguage = 'ES';
 
+  changeLanguage(lang: string) {
+    this.activeLanguage = lang;
+  }
 }
