@@ -1,1 +1,58 @@
-<p>habilidades works!</p>
+<section class="px-6 py-20 bg-[#0B0A10]">
+  <div class="max-w-5xl mx-auto">
+    
+    <h2 class="mb-16 text-3xl font-bold text-center text-white md:text-4xl">
+      Mis Habilidades Técnicas
+    </h2>
+
+    <div class="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4 md:gap-6">
+      
+      <div *ngFor="let hab of habilidades" 
+           class="flex flex-col items-center justify-center p-6 transition-all duration-300 border bg-[#151320] border-gray-800/80 rounded-2xl hover:-translate-y-1 hover:border-purple-500/50 hover:shadow-lg hover:shadow-purple-900/20 group">
+        
+        <div class="flex items-center justify-center w-16 h-16 mb-4 transition-colors border bg-[#0B0A10] border-gray-800/50 rounded-2xl group-hover:border-gray-700">
+          
+          <span *ngIf="hab.tipo === 'texto'" class="text-2xl font-bold {{ hab.color }}">
+            {{ hab.valor }}
+          </span>
+
+          <img *ngIf="hab.tipo === 'imagen'" [src]="hab.valor" [alt]="hab.nombre" class="object-contain w-8 h-8">
+
+          <ng-container *ngIf="hab.tipo === 'icono'" [ngSwitch]="hab.valor">
+            
+            <svg *ngSwitchCase="'sql'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 {{ hab.color }}">
+              <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+              <path d="M3 5V19A9 3 0 0 0 21 19V5"></path>
+              <path d="M3 12A9 3 0 0 0 21 12"></path>
+            </svg>
+
+            <svg *ngSwitchCase="'liquid'" viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8 {{ hab.color }}">
+              <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path>
+            </svg>
+
+            <svg *ngSwitchCase="'ps'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-7 h-7 {{ hab.color }}">
+              <circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/>
+              <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.836-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"></path>
+            </svg>
+
+            <svg *ngSwitchCase="'video'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 {{ hab.color }}">
+              <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+              <path d="M8 21h8"></path><path d="M12 17v4"></path>
+              <polygon points="10 8 15 10 10 12 10 8" fill="currentColor"></polygon>
+            </svg>
+
+            <svg *ngSwitchCase="'globe'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 {{ hab.color }}">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="2" y1="12" x2="22" y2="12"></line>
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+            </svg>
+
+          </ng-container>
+        </div>
+        
+        <span class="text-sm font-medium text-gray-300">{{ hab.nombre }}</span>
+      </div>
+
+    </div>
+  </div>
+</section>

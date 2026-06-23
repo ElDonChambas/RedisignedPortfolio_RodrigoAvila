@@ -2,10 +2,9 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-certificaciones',
-  imports: [],
+  standalone: true,
   templateUrl: './certificaciones.html',
-  styleUrl: './certificaciones.css',
 })
 export class Certificaciones {
-
+  enlaceDrive = 'https://drive.google.com/drive/folders/TU_ENLACE_AQUI';
 }
